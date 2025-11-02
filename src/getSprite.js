@@ -27,7 +27,7 @@ const getTileTexture = (tile, map, tileset) => {
     const rootDir = getDirname(map.path)
     const baseTexture = Texture.from(`${rootDir}/${tileset.image.source}`)
 
-    return new Texture(baseTexture, new Rectangle(x, y, tileHeight, tileWidth))
+    return new Texture(baseTexture, new Rectangle(x, y, tileWidth, tileHeight))
 }
 
 const getTileSprite = (tileType, tile, map) => {
