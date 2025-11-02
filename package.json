@@ -32,9 +32,9 @@
   "author": "David Minnerly",
   "license": "MIT",
   "peerDependencies": {
-    "@inlet/react-pixi": ">=6.5.2",
-    "pixi.js": ">=6.0.4",
-    "react": ">=17.0.2"
+    "@pixi/react": ">=8.0.0",
+    "pixi.js": ">=8.0.0",
+    "react": ">=18.0.0"
   },
   "dependencies": {
     "tmx-parser": "github:eioo/node-tmx-parser"

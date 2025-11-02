@@ -1,7 +1,11 @@
-import path from 'path'
 import { Rectangle, Texture } from 'pixi.js'
-import { Sprite } from "@inlet/react-pixi"
 import React from "react"
+
+// Helper function to get directory path from a URL/path string
+const getDirname = (filepath) => {
+    const lastSlash = filepath.lastIndexOf('/')
+    return lastSlash >= 0 ? filepath.substring(0, lastSlash) : ''
+}
 
 const getTilesetForGID = (gid, tilesets) => {
     let result
@@ -18,12 +22,12 @@ const getTileTexture = (tile, map, tileset) => {
     const spriteIndex = tile.gid - tileset.firstGid
 
     const x = (spriteIndex % (image.width / tileWidth)) * tileWidth
-    const y = Math.floor(spriteIndex / (image.height / tileHeight)) * tileHeight
+    const y = Math.floor(spriteIndex / (image.width / tileWidth)) * tileHeight
 
-    const rootDir = path.dirname(map.path)
+    const rootDir = getDirname(map.path)
     const baseTexture = Texture.from(`${rootDir}/${tileset.image.source}`)
 
-    return new Texture(baseTexture, new Rectangle(x, y, tileHeight, tileWidth))
+    return new Texture(baseTexture, new Rectangle(x, y, tileWidth, tileHeight))
 }
 
 const getTileSprite = (tileType, tile, map) => {
@@ -39,7 +43,7 @@ const getTileSprite = (tileType, tile, map) => {
             y -= height
         }
 
-        return <Sprite key={`(${x},${y})`}
+        return <sprite key={`(${x},${y})`}
             texture={texture}
             x={x}
             y={y}

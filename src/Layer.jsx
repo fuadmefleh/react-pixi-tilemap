@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { Container } from "@inlet/react-pixi"
 import getSprite from './getSprite'
 
 const getTileSprites = (layer, map) => {
@@ -40,9 +39,9 @@ const Layer = ({ layer, map }) => {
         }
     }, [ layer ] )
 
-    return <Container alpha={layer.opacity}>
+    return <container alpha={layer.opacity}>
         {sprites}
-    </Container>
+    </container>
 }
 
 export default Layer
