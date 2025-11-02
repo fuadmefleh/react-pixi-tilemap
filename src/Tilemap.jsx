@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react'
-import { Container } from '@inlet/react-pixi'
 import TilemapContext from './TilemapContext'
 import Layer from './Layer'
 
@@ -22,12 +21,12 @@ const Tilemap = ({ map, children, ...props }) => {
     // conditionally check if anything in TilemapContext exists.
     if (map) {
         return <TilemapContext.Provider value={{ map }}>
-            <Container {...props}>
+            <container {...props}>
                 {layers}
 
                 {/* If there's no foreground layer specified in the map, we simply render the children on top */}
                 {!hasForeground && children}
-            </Container>
+            </container>
         </TilemapContext.Provider>
     } else {
         return null
