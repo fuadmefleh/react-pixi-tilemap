@@ -5,10 +5,10 @@ import { Tilemap, useTilemapLoader } from 'react-pixi-tilemap'
 // Register PixiJS components for use in JSX
 extend({ Container, Sprite });
 
-const tilemape = process.env.PUBLIC_URL + '/stages/map.tmx'
+const tilemap = process.env.PUBLIC_URL + '/stages/map.tmx'
 
 const App = () => {
-    const map = useTilemapLoader(tilemape)
+    const map = useTilemapLoader(tilemap)
 
     return (
         <Application width={window.innerWidth} height={window.innerHeight} options={{ resizeTo: window }}>

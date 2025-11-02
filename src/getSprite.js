@@ -22,7 +22,7 @@ const getTileTexture = (tile, map, tileset) => {
     const spriteIndex = tile.gid - tileset.firstGid
 
     const x = (spriteIndex % (image.width / tileWidth)) * tileWidth
-    const y = Math.floor(spriteIndex / (image.height / tileHeight)) * tileHeight
+    const y = Math.floor(spriteIndex / (image.width / tileWidth)) * tileHeight
 
     const rootDir = getDirname(map.path)
     const baseTexture = Texture.from(`${rootDir}/${tileset.image.source}`)
